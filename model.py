@@ -105,11 +105,14 @@ class LuongAttnDecoderRNN(nn.Module):
             raise ValueError('Decoder input sequence length should be 1')
 
         # Get current hidden state from input word and last hidden state
-        rnn_output, hidden = self.gru(embedded, last_hidden)
+        # TODO: gru layer
+        # rnn_output, hidden = 
 
         # Calculate attention from current RNN state and all encoder outputs;
         # apply to encoder outputs to get weighted average
-        attn_weights = self.attn(rnn_output, encoder_outputs) #[64, 1, 14]
+        # TODO: attention layer
+        # attn_weights = 
+
         # encoder_outputs [14, 64, 512]
         context = attn_weights.bmm(encoder_outputs.transpose(0, 1)) #[64, 1, 512] 
 
@@ -122,7 +125,8 @@ class LuongAttnDecoderRNN(nn.Module):
 
         # Finally predict next token (Luong eq. 6, without softmax)
         output = self.out(concat_output) #[64, output_size]
-        output = F.softmax(output)
+        # TODO: softmax layer
+        # output = 
 
         # Return final output, hidden state, and attention weights (for visualization)
         return output, hidden, attn_weights
