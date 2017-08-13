@@ -15,6 +15,11 @@ Sure. Bye.
 How are you?
 Better than ever.
 ```
+The corpus files should be placed under a path like,
+```
+FSGC-pytorch-tutorial/data/<corpus file name>
+```
+Otherwise, the corpus file will be tracked by git.
 #### Training
 Run this command to start training, change the argument values in your own need.
 ```
@@ -25,6 +30,7 @@ For more options,
 python main.py -h
 ```
 #### Testing
+Models will be saved in `FSGC-pytorch-tutorial/save/model` while training, and this can be changed in `config.py`.  
 Evaluate the saved model with input sequences in the corpus.
 ```
 python main.py -te <MODEL_FILE_PATH>
